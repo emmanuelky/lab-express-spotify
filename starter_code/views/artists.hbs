@@ -1,41 +1,21 @@
+<h1>Results for: "{{search}}"</h1>
 
-<div class="container">
-
-    <h2>{{artistsQuery}}</h2>
-
-    {{#each artists}}
-
-        {{> artistsPartials}}
-        
-    {{/each}}
-    
-
+<div class="list">
+  {{#each artists}}
+    <div class="card">
+      <h3>{{this.name}}</h3>
+      {{#if this.images.[0]}} 
+        <img src="{{this.images.[0].url}}" alt="">
+      {{else}}
+        <img src="/images/artist-list-default.jpg" alt="">
+      {{/if}}
+      <a href="/albums/{{this.id}}">View albums</a>
+    </div>
+  {{else}}
+    <div>
+      Sorry, there are no artists for your search
+    </div>
+  {{/each}}
 </div>
 
-
-
-
-
-
-
-
-{{!-- [ { external_urls:
-     { spotify: 'https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2' },
-    followers: { href: null, total: 7102132 },
-    genres:
-     [ 'album rock',
-       'british invasion',
-       'classic rock',
-       'merseybeat',
-       'psychedelic rock',
-       'rock' ],
-    href: 'https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2',
-    id: '3WrFJ7ztbogyGnTHbHJFl2',
-    images: [ [Object], [Object], [Object] ],
-    name: 'The Beatles',
-    popularity: 86,
-    type: 'artist',
-    uri: 'spotify:artist:3WrFJ7ztbogyGnTHbHJFl2' },
-  { external_urls:
-     { spotify: 'https://open.spotify.com/artist/2NUpOkMGBeKWAPI0Ckn6gx' },
-    followers: { href: null, total: 15 }, --}}
+{{!-- <pre>{{JSON}}</pre> --}}

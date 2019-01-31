@@ -1,57 +1,11 @@
-<div class="container">
+<h1>Albums</h1>
 
-    <h2>{{artist}}</h2>
-
-    {{#each artistAlbums}}
-
-        {{> albumsPartials}}
-        
-    {{/each}}
-    
-
+<div class="list">
+  {{#each albums}}
+    <div class="card">
+      <h3>{{this.name}}</h3>
+      <img src="{{this.images.[0].url}}" alt="">
+      <a href="/tracks/{{this.id}}">View Tracks</a>
+    </div>
+  {{/each}}
 </div>
-
-
-
-
-
-
-
-
-{{!-- { href: 'https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2/albums?offset=0&limit=20&include_groups=album,single,compilation,appears_on',
-  items:
-   [ { album_group: 'album',
-       album_type: 'album',
-       artists: [Array],
-       available_markets: [Array],
-       external_urls: [Object],
-       href: 'https://api.spotify.com/v1/albums/0n9SWDBEftKwq09B01Pwzw',
-       id: '0n9SWDBEftKwq09B01Pwzw',
-       images: [Array],
-       name: 'Live At The Hollywood Bowl',
-       release_date: '2016-09-09',
-       release_date_precision: 'day',
-       type: 'album',
-       uri: 'spotify:album:0n9SWDBEftKwq09B01Pwzw' },
-     { album_group: 'album',
-       album_type: 'album',
-       artists: [Array],
-       available_markets: [Array],
-       external_urls: [Object],
-       href: 'https://api.spotify.com/v1/albums/5XfJmldgWzrc1AIdbBaVZn',
-       id: '5XfJmldgWzrc1AIdbBaVZn',
-       images: [Array],
-       name: 'Live At The Hollywood Bowl',
-       release_date: '2016-09-09',
-       release_date_precision: 'day',
-       type: 'album',
-       uri: 'spotify:album:5XfJmldgWzrc1AIdbBaVZn' },
-     { album_group: 'album',
-       album_type: 'album',
-       artists: [Array],
-       available_markets: [Array],
-       external_urls: [Object],
-       href: 'https://api.spotify.com/v1/albums/7aglIjEn9DjguIZ7CxGSS4',
-       id: '7aglIjEn9DjguIZ7CxGSS4',
-       images: [Array],
-       name: 'Love', --}}
